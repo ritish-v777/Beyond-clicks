@@ -5,6 +5,10 @@ const homeFaq = [
   ["Do the tools upload my files?", "No. The CV Screener reads files inside your browser. Nothing you drop in is sent to our servers."],
 ];
 
+let __i = 0;
+const split = (text) =>
+  text.split(" ").map((w) => `<span class="w"><span style="--i:${__i++}">${w}</span></span>`).join(" ");
+
 const home = {
   path: "/",
   section: "home",
@@ -13,30 +17,36 @@ const home = {
   description:
     "Beyond Clicks grows marketing-led brands, sources vetted marketing talent for agencies in the US, UK and Canada, and builds free tools for recruiters and marketers.",
   faq: homeFaq,
-  body: ({ u, icon, faqBlock }) => `
-<section class="hero">
-  <div class="hero-orb" aria-hidden="true"></div>
+  scripts: ["/assets/js/silk.js"],
+  body: ({ u, icon, faqBlock }) => {
+    __i = 0;
+    return `
+<section class="hero-x">
+  <div class="silk-wrap" aria-hidden="true"><canvas data-silk="0.4" data-bright="1"></canvas></div>
   <div class="container hero-grid">
     <div>
-      <span class="eyebrow">Marketing, staffing and tools</span>
-      <h1 style="margin-top:18px">We grow brands and find the <span class="hl">marketers</span> who run them.</h1>
-      <p class="lead">Our marketing team fixes measurement and scales paid growth. Our staffing team sources and screens marketing talent for agencies in the US, UK and Canada. Our free tools help recruiters and marketers do the busy work faster.</p>
-      <div class="btn-row">
+      <span class="eyebrow fade-up" style="--d:.05s">Marketing, staffing and tools</span>
+      <h1 class="split-text" style="margin-top:18px">${split("We grow brands and find the")} <span class="hl">${split("marketers")}</span> ${split("who run them.")}</h1>
+      <p class="lead fade-up" style="--d:.7s">Our marketing team fixes measurement and scales paid growth. Our staffing team sources and screens marketing talent for agencies in the US, UK and Canada. Our free tools take the busy work off recruiters and marketers.</p>
+      <div class="btn-row fade-up" style="--d:.85s">
         <a class="btn" href="${u("/marketing/")}">I need growth <span class="arrow">&rarr;</span></a>
         <a class="btn btn-ghost" href="${u("/staffing/")}">I need marketers</a>
       </div>
+      <div class="hero-meta fade-up" style="--d:1s"><span><i></i>Free tools, no signup</span><span>Clients in the US, UK, Canada and India</span></div>
     </div>
-    <div class="card reveal" aria-label="Example screener result">
-      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
-        <span class="badge badge-wine">CV Screener</span><span class="small muted">Example batch</span>
+    <div class="float-stack fade-up" style="--d:.6s" aria-label="Examples of our work">
+      <div class="glass float-chip float-a"><div class="card-icon">${icon("chart")}</div><div><b>Tracking audit</b><small>Example: 3 leaks found before scaling</small></div></div>
+      <div class="glass card float-main" data-tilt="5" style="padding:22px">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><span class="badge badge-wine">CV Screener</span><span class="small muted">Example batch</span></div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:6px">
+          <div><div class="card-num">24</div><p class="small">CVs screened</p></div>
+          <div><div class="card-num">9</div><p class="small">meet every must-have</p></div>
+          <div><div class="card-num hl">3</div><p class="small">flags to check</p></div>
+        </div>
+        <p class="small">Two summaries are near copies. One candidate lists overlapping full-time roles in 2022.</p>
+        <a class="btn btn-sm" href="${u("/tools/cv-screener/")}">Try it with sample CVs <span class="arrow">&rarr;</span></a>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:6px">
-        <div><div class="card-num">24</div><p class="small">CVs screened</p></div>
-        <div><div class="card-num">9</div><p class="small">meet every must-have</p></div>
-        <div><div class="card-num hl">3</div><p class="small">flags to check</p></div>
-      </div>
-      <p class="small">Two summaries are near copies of each other. One candidate lists overlapping full-time roles in 2022.</p>
-      <a class="btn btn-sm" href="${u("/tools/cv-screener/")}">Try it with sample CVs <span class="arrow">&rarr;</span></a>
+      <div class="glass float-chip float-b"><div class="card-icon">${icon("users")}</div><div><b>Shortlist ready</b><small>Example: 5 screened marketers in 5 days</small></div></div>
     </div>
   </div>
 </section>
@@ -48,67 +58,157 @@ const home = {
 </div></div>
 
 <section class="section">
+  <div class="container ptabs">
+    <div class="section-head" style="margin-bottom:0">
+      <span class="eyebrow">Start with the problem</span>
+      <h2>What's slowing you down?</h2>
+    </div>
+    <div class="ptab-list" role="tablist" aria-label="Pick your problem">
+      <button role="tab" id="t-spend" aria-controls="p-spend" aria-selected="true">Ad spend isn't paying back</button>
+      <button role="tab" id="t-hire" aria-controls="p-hire" aria-selected="false" tabindex="-1">I can't find good marketers</button>
+      <button role="tab" id="t-cvs" aria-controls="p-cvs" aria-selected="false" tabindex="-1">Too many CVs to read</button>
+    </div>
+    <div class="ptab-panel" role="tabpanel" id="p-spend" aria-labelledby="t-spend">
+      <div style="display:grid;gap:16px">
+        <h3>Check the numbers before you spend more.</h3>
+        <ol class="ptab-steps">
+          <li><b>1</b><span>We compare a week of real sales with what your ad platforms report.</span></li>
+          <li><b>2</b><span>You get written findings and a 90-day fix list in 5 business days.</span></li>
+          <li><b>3</b><span>We fix the tracking, then scale what's actually working.</span></li>
+        </ol>
+        <div class="btn-row"><a class="btn" href="${u("/marketing/diagnosis/")}">See the Growth Diagnosis <span class="arrow">&rarr;</span></a></div>
+      </div>
+      <div class="ptab-visual" style="background-image:url(${u("/assets/img/silk-2-sm.webp")})"><div class="big">$750<small>Fixed price, credited against fixes</small></div></div>
+    </div>
+    <div class="ptab-panel" role="tabpanel" id="p-hire" aria-labelledby="t-hire" hidden>
+      <div style="display:grid;gap:16px">
+        <h3>Get 5 checked marketers in 5 days.</h3>
+        <ol class="ptab-steps">
+          <li><b>1</b><span>A 20-minute brief on the role, pay range and deal breakers.</span></li>
+          <li><b>2</b><span>We source and screen performance, paid social and SEO talent.</span></li>
+          <li><b>3</b><span>Every candidate comes with call notes and a verification report.</span></li>
+        </ol>
+        <div class="btn-row"><a class="btn" href="${u("/staffing/free-shortlist/")}">Get 3 free candidates <span class="arrow">&rarr;</span></a></div>
+      </div>
+      <div class="ptab-visual" style="background-image:url(${u("/assets/img/silk-3-sm.webp")})"><div class="big">5 days<small>From brief to a checked shortlist</small></div></div>
+    </div>
+    <div class="ptab-panel" role="tabpanel" id="p-cvs" aria-labelledby="t-cvs" hidden>
+      <div style="display:grid;gap:16px">
+        <h3>Screen a batch in your browser, privately.</h3>
+        <ol class="ptab-steps">
+          <li><b>1</b><span>Paste the job description and your must-have skills.</span></li>
+          <li><b>2</b><span>Drop in PDF or Word CVs. Nothing is uploaded.</span></li>
+          <li><b>3</b><span>See criteria met, what to check and the questions to ask.</span></li>
+        </ol>
+        <div class="btn-row"><a class="btn" href="${u("/tools/cv-screener/")}">Open the screener <span class="arrow">&rarr;</span></a></div>
+      </div>
+      <div class="ptab-visual" style="background-image:url(${u("/assets/img/shot-screener.webp")})"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section-tight">
   <div class="container">
     <div class="section-head">
-      <span class="eyebrow">Pick your door</span>
+      <span class="eyebrow">Three divisions</span>
       <h2>One team. Three ways in.</h2>
     </div>
     <div class="doors">
-      <a class="card door door-featured reveal" href="${u("/marketing/")}">
-        <div><span class="door-tag">01 / Marketing</span></div>
-        <div style="display:grid;gap:12px">
-          <h3>Grow on data you can trust</h3>
-          <p>We audit your tracking first, then scale Meta and Google spend on numbers that hold up.</p>
-          <span class="card-foot">See marketing ${icon("arrow")}</span>
-        </div>
+      <a class="card door door-img" href="${u("/marketing/")}" data-tilt="4" data-cursor="Open">
+        <div class="door-bg" style="background-image:url(${u("/assets/img/silk-2-sm.webp")})"></div>
+        <span class="door-num" aria-hidden="true">01</span>
+        <span class="door-tag">Marketing</span>
+        <div class="door-copy"><h3>Grow on data you can trust</h3><p>We audit your tracking first, then scale Meta and Google spend on numbers that hold up.</p><span class="card-foot">See marketing ${icon("arrow")}</span></div>
       </a>
-      <a class="card door reveal" href="${u("/staffing/")}">
-        <div><span class="door-tag">02 / Staffing</span></div>
-        <div style="display:grid;gap:12px">
-          <h3>Marketers, vetted</h3>
-          <p>Screened shortlists of performance, paid social and SEO talent in 5 business days.</p>
-          <span class="card-foot">See staffing ${icon("arrow")}</span>
-        </div>
+      <a class="card door door-img" href="${u("/staffing/")}" data-tilt="4" data-cursor="Open">
+        <div class="door-bg" style="background-image:url(${u("/assets/img/silk-3-sm.webp")})"></div>
+        <span class="door-num" aria-hidden="true">02</span>
+        <span class="door-tag">Staffing</span>
+        <div class="door-copy"><h3>Marketers, vetted</h3><p>Screened shortlists of performance, paid social and SEO talent in 5 business days.</p><span class="card-foot">See staffing ${icon("arrow")}</span></div>
       </a>
-      <a class="card door reveal" href="${u("/tools/")}">
-        <div><span class="door-tag">03 / Tools</span></div>
-        <div style="display:grid;gap:12px">
-          <h3>Free tools</h3>
-          <p>Screen CVs in your browser and build clean UTM links. No signup to start.</p>
-          <span class="card-foot">See tools ${icon("arrow")}</span>
-        </div>
+      <a class="card door door-img" href="${u("/tools/")}" data-tilt="4" data-cursor="Try">
+        <div class="door-bg" style="background-image:url(${u("/assets/img/silk-4-sm.webp")})"></div>
+        <span class="door-num" aria-hidden="true">03</span>
+        <span class="door-tag">Tools</span>
+        <div class="door-copy"><h3>Free tools</h3><p>Screen CVs in your browser and build clean UTM links. No signup to start.</p><span class="card-foot">See tools ${icon("arrow")}</span></div>
       </a>
     </div>
   </div>
 </section>
 
-<section class="section section-light">
-  <div class="container split">
-    <div class="split-sticky section-head">
-      <span class="eyebrow">How we work</span>
-      <h2>Find the problem before spending more.</h2>
-      <p class="lead">Most wasted budgets and bad hires share a cause: someone acted on numbers or claims nobody checked. Checking comes first in everything we do.</p>
+<section class="section">
+  <div class="container showcase-grid">
+    <div class="section-head" style="margin:0">
+      <span class="eyebrow">See it work</span>
+      <h2>A screener recruiters actually enjoy.</h2>
+      <ul class="showcase-points">
+        <li><div class="card-icon">${icon("lock")}</div><div><b>Private by design</b><p>CVs are read on your device. Nothing goes to a server.</p></div></li>
+        <li><div class="card-icon">${icon("flag")}</div><div><b>Flags with reasons</b><p>Overlapping dates, gaps and copy-paste CVs, each with the reason shown.</p></div></li>
+        <li><div class="card-icon">${icon("pen")}</div><div><b>Questions ready to ask</b><p>Interview questions written around each candidate's own claims.</p></div></li>
+      </ul>
+      <div class="btn-row"><a class="btn" href="${u("/tools/cv-screener/")}">Try it free <span class="arrow">&rarr;</span></a></div>
     </div>
-    <ol class="steps steps-1" style="grid-template-columns:1fr">
-      <li><div class="card"><h3>Check</h3><p>Audit the tracking, the account or the candidate's claims before anything else.</p></div></li>
-      <li><div class="card"><h3>Decide</h3><p>Put findings in writing with a short fix list, so you can see what we saw.</p></div></li>
-      <li><div class="card"><h3>Do the work</h3><p>Run the campaigns or deliver the shortlist, with weekly reporting you can read in two minutes.</p></div></li>
-      <li><div class="card"><h3>Prove it</h3><p>Report against the numbers we agreed at the start, not new ones picked afterwards.</p></div></li>
-    </ol>
+    <div class="showcase">
+      <div class="browser" data-showcase>
+        <div class="browser-bar"><i></i><i></i><i></i><span>beyondclicks / tools / cv-screener</span></div>
+        <img src="${u("/assets/img/shot-screener.webp")}" alt="CV Screener results: 8 CVs screened, 6 with something to check, and one near-identical pair flagged" width="1400" height="1150" loading="lazy" decoding="async">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hscroll" data-hscroll>
+  <div class="hs-sticky">
+    <div class="container">
+      <div class="section-head" style="margin-bottom:28px">
+        <span class="eyebrow">How we work</span>
+        <h2>Check first. Then do the work.</h2>
+      </div>
+    </div>
+    <div class="container" style="overflow:visible">
+      <div class="hs-track">
+        <article class="hs-card"><span class="hs-num" aria-hidden="true">01</span><h3>Check</h3><p>Audit the tracking, the account or the candidate's claims before anything else.</p></article>
+        <article class="hs-card"><span class="hs-num" aria-hidden="true">02</span><h3>Decide</h3><p>Findings in writing with a short fix list, so you see exactly what we saw.</p></article>
+        <article class="hs-card hs-wine"><div class="hs-bg" style="background-image:url(${u("/assets/img/silk-1-sm.webp")})"></div><span class="hs-num" aria-hidden="true">03</span><h3>Do the work</h3><p>Run the campaigns or deliver the shortlist, with weekly reports you can read in two minutes.</p></article>
+        <article class="hs-card"><span class="hs-num" aria-hidden="true">04</span><h3>Prove it</h3><p>Report against the numbers agreed at the start, not new ones picked afterwards.</p></article>
+      </div>
+      <div class="hs-progress" aria-hidden="true"><i></i></div>
+    </div>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
     <div class="section-head">
+      <span class="eyebrow">Your hours, our hours</span>
+      <h2>We work when you do.</h2>
+      <p class="lead">Live time in each market we serve. The bar shows a 9 to 6 working day and where each city is right now.</p>
+    </div>
+    <div class="clocks">
+      ${[
+        ["New York", "America/New_York"],
+        ["Toronto", "America/Toronto"],
+        ["London", "Europe/London"],
+        ["Mohali, our team", "Asia/Kolkata", true],
+        ["Mumbai", "Asia/Kolkata"],
+      ]
+        .map(([c, tz, home]) => `<div class="clock${home ? " is-home" : ""}" data-tz="${tz}"><span class="clock-city">${c}</span><span class="clock-time">--:--</span><span class="clock-status">Checking</span><div class="clock-bar"><span class="clock-now"></span></div></div>`)
+        .join("")}
+    </div>
+  </div>
+</section>
+
+<section class="section-tight">
+  <div class="container">
+    <div class="section-head">
       <span class="eyebrow">Why hiring needs a second look</span>
       <h2>Recruiters are reading more polished CVs than ever.</h2>
     </div>
     <div class="stats">
-      <div class="stat reveal"><b class="hl">33%</b><p>of recruiters named AI-polished CVs as their biggest stressor, a first in the survey's 19 years.</p><a href="https://www.hrdive.com/news/ai-is-the-root-of-recruiters-biggest-stressors-survey-says/833223/" rel="noopener">HR Dive</a></div>
-      <div class="stat reveal"><b>6 in 10</b><p>recruiters see fake or AI-generated applications regularly.</p><a href="https://www.pin.com/blog/deepfake-candidate-report/" rel="noopener">Pin, 2026 survey</a></div>
-      <div class="stat reveal"><b>1 in 4</b><p>candidate profiles worldwide could be fake by 2028, according to a Gartner forecast.</p><a href="https://www.refontelearning.com/blog/ai-fake-candidate-fraud" rel="noopener">Gartner, via Refonte</a></div>
-      <div class="stat reveal"><b>0</b><p>CVs uploaded to our servers when you use the CV Screener. It runs in your browser.</p><a href="${u("/tools/cv-screener/")}">How it works</a></div>
+      <div class="stat"><b class="hl" data-count="33" data-suffix="%">33%</b><p>of recruiters named AI-polished CVs as their biggest stressor, a first in the survey's 19 years.</p><a href="https://www.hrdive.com/news/ai-is-the-root-of-recruiters-biggest-stressors-survey-says/833223/" rel="noopener">HR Dive</a></div>
+      <div class="stat"><b>6 in 10</b><p>recruiters see fake or AI-generated applications regularly.</p><a href="https://www.pin.com/blog/deepfake-candidate-report/" rel="noopener">Pin, 2026 survey</a></div>
+      <div class="stat"><b data-count="40" data-suffix="%">40%</b><p>of US managers have interviewed someone later found to be using a fake identity.</p><a href="https://www.pin.com/blog/deepfake-candidate-report/" rel="noopener">Checkr, via Pin</a></div>
+      <div class="stat"><b>0</b><p>CVs uploaded to our servers when you use the CV Screener. It runs in your browser.</p><a href="${u("/tools/cv-screener/")}">How it works</a></div>
     </div>
   </div>
 </section>
@@ -122,15 +222,17 @@ const home = {
 
 <section class="section">
   <div class="container">
-    <div class="card section-wine cta-band" style="padding:clamp(28px,5vw,56px)">
+    <div class="card cta-art cta-band" data-parallax="0.08" style="padding:clamp(28px,6vw,72px);border-color:rgba(255,255,255,.14)">
+      <div class="cta-bg" aria-hidden="true"></div>
       <div style="display:grid;gap:14px">
         <h2>Tell us what's stuck. We'll tell you where to start.</h2>
-        <p style="color:rgba(255,255,255,.82)">A short call, a straight answer, and a written next step either way.</p>
+        <p style="color:rgba(255,255,255,.85)">A short call, a straight answer, and a written next step either way.</p>
       </div>
       <div class="btn-row"><a class="btn btn-light" href="${u("/contact/")}">Talk to us <span class="arrow">&rarr;</span></a></div>
     </div>
   </div>
-</section>`,
+</section>`;
+  },
 };
 
 const about = {

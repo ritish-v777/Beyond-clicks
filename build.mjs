@@ -157,8 +157,8 @@ function layout(page) {
   const u = makeUrl(page.path);
   const title = page.title.includes(SITE.name) ? page.title : `${page.title} | ${SITE.name}`;
   const canonical = absUrl(page.path);
-  const scripts = ["/assets/js/main.js", ...(page.scripts || [])].map((s) => `<script src="${u(s)}" defer></script>`).join("\n");
-  const body = page.body({ u, icon, faqBlock, esc });
+  const scripts = ["/assets/js/main.js", "/assets/js/fx.js", ...(page.scripts || [])].map((s) => `<script src="${u(s)}" defer></script>`).join("\n");
+  const body = page.body({ u, icon, faqBlock, esc }).replace(/class="page-hero"/g, 'class="page-hero" data-parallax="0.12"');
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -180,11 +180,12 @@ ${page.noindex ? '<meta name="robots" content="noindex">' : ""}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,700..900&family=Manrope:wght@400;500;600;700;800&display=swap">
+${page.path === "/" ? `<link rel="preload" as="image" href="${u("/assets/img/silk-1.webp")}">` : ""}
 <link rel="stylesheet" href="${u("/assets/css/style.css")}">
 ${page.styles ? `<link rel="stylesheet" href="${u(page.styles)}">` : ""}
 <script type="application/ld+json">${jsonLd(page)}</script>
 </head>
-<body>
+<body data-section="${page.section}">
 <a class="skip" href="#main">Skip to content</a>
 <div class="progress" aria-hidden="true"></div>
 ${header(page, u)}

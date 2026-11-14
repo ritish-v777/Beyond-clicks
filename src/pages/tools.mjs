@@ -24,13 +24,15 @@ const hub = {
 </section>
 <section class="section-tight">
   <div class="container grid grid-2">
-    <a class="card reveal" href="${u("/tools/cv-screener/")}" style="min-height:260px">
+    <a class="card reveal" href="${u("/tools/cv-screener/")}" data-tilt="4" data-cursor="Try">
+      <div class="tool-card-shot" style="background-image:url(${u("/assets/img/shot-screener.webp")})" role="img" aria-label="CV Screener results screen"></div>
       <div style="display:flex;justify-content:space-between;gap:10px"><div class="card-icon">${icon("file")}</div><span class="badge badge-wine">For recruiters</span></div>
       <h2 style="font-size:var(--step-2)">CV Screener</h2>
       <p>Drop in a batch of CVs and a job description. See which criteria each CV meets, what's worth checking, and the questions to ask in the interview.</p>
       <span class="card-foot">Open the screener ${icon("arrow")}</span>
     </a>
-    <a class="card reveal" href="${u("/tools/utm-builder/")}" style="min-height:260px">
+    <a class="card reveal" href="${u("/tools/utm-builder/")}" data-tilt="4" data-cursor="Try">
+      <div class="tool-card-shot" style="background-image:url(${u("/assets/img/shot-utm.webp")})" role="img" aria-label="UTM Builder with a finished link and naming checks"></div>
       <div style="display:flex;justify-content:space-between;gap:10px"><div class="card-icon">${icon("link")}</div><span class="badge">For marketers</span></div>
       <h2 style="font-size:var(--step-2)">UTM Builder</h2>
       <p>Build tagged campaign links with channel presets and a naming check that catches the mistakes that split your reports.</p>
