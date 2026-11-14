@@ -11,7 +11,7 @@ const hub = {
   title: "Free tools for recruiters and marketers",
   nav: "All tools",
   group: "Tools",
-  description: "Free browser-based tools from Beyond Clicks: a private CV Screener for recruiters and a UTM Builder for marketers. No signup to start.",
+  description: "Free browser-based tools from Beyond Hive: a private CV Screener for recruiters and a UTM Builder for marketers. No signup to start.",
   crumbs: [{ name: "Tools", path: "/tools/" }],
   body: ({ u, icon }) => `
 <section class="page-hero">
@@ -64,7 +64,7 @@ const screener = {
   styles: "/assets/css/tools.css",
   scripts: ["/assets/js/cv-samples.js", "/assets/js/cv-screener.js"],
   schema: {
-    "@type": "SoftwareApplication", name: "Beyond Clicks CV Screener", applicationCategory: "BusinessApplication", operatingSystem: "Web browser",
+    "@type": "SoftwareApplication", name: "Beyond Hive CV Screener", applicationCategory: "BusinessApplication", operatingSystem: "Web browser",
     offers: [{ "@type": "Offer", price: "0", priceCurrency: "USD", name: "Free" }, { "@type": "Offer", price: "19", priceCurrency: "USD", name: "Pro, monthly" }],
   },
   body: ({ u, icon, faqBlock }) => `
@@ -230,7 +230,7 @@ const utm = {
   crumbs: [{ name: "Tools", path: "/tools/" }, { name: "UTM Builder", path: "/tools/utm-builder/" }],
   styles: "/assets/css/tools.css",
   scripts: ["/assets/js/utm-builder.js"],
-  schema: { "@type": "SoftwareApplication", name: "Beyond Clicks UTM Builder", applicationCategory: "BusinessApplication", operatingSystem: "Web browser", offers: { "@type": "Offer", price: "0", priceCurrency: "USD" } },
+  schema: { "@type": "SoftwareApplication", name: "Beyond Hive UTM Builder", applicationCategory: "BusinessApplication", operatingSystem: "Web browser", offers: { "@type": "Offer", price: "0", priceCurrency: "USD" } },
   body: ({ icon }) => `
 <section class="tool-hero">
   <div class="container">

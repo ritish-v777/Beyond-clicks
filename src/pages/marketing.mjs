@@ -11,10 +11,10 @@ const marketing = {
   title: "Marketing | Paid growth on data you can trust",
   nav: "Marketing",
   group: "Marketing",
-  description: "Beyond Clicks audits your tracking first, then runs Meta and Google ads on numbers you can trust. Fixed-price Growth Diagnosis to start.",
+  description: "Beyond Hive audits your tracking first, then runs Meta and Google ads on numbers you can trust. Fixed-price Growth Diagnosis to start.",
   crumbs: [{ name: "Marketing", path: "/marketing/" }],
   faq: mFaq,
-  schema: { "@type": "Service", name: "Paid growth and tracking audits", provider: { "@id": "https://beyondclicks.example/#org" }, areaServed: ["US", "GB", "CA", "IN"] },
+  schema: { "@type": "Service", name: "Paid growth and tracking audits", provider: { "@id": "https://beyondhive.example/#org" }, areaServed: ["US", "GB", "CA", "IN"] },
   body: ({ u, icon, faqBlock }) => `
 <section class="page-hero">
   <div class="hero-orb" aria-hidden="true"></div>
@@ -147,7 +147,7 @@ const work = {
   title: "Our work | Marketing case studies",
   nav: "Our work",
   group: "Marketing",
-  description: "Marketing case studies from Beyond Clicks: tracking rebuilds and paid growth for brands in the US, UK, Canada and India.",
+  description: "Marketing case studies from Beyond Hive: tracking rebuilds and paid growth for brands in the US, UK, Canada and India.",
   crumbs: [{ name: "Marketing", path: "/marketing/" }, { name: "Our work", path: "/marketing/work/" }],
   body: ({ u }) => `
 <section class="page-hero">

@@ -54,7 +54,7 @@ const index = {
   title: "Resources | Guides for recruiters and marketers",
   nav: "Resources",
   group: "Company",
-  description: "Practical guides from Beyond Clicks on screening candidates, spotting fake applications and keeping ad tracking honest.",
+  description: "Practical guides from Beyond Hive on screening candidates, spotting fake applications and keeping ad tracking honest.",
   crumbs: [{ name: "Resources", path: "/resources/" }],
   body: ({ u, icon }) => `
 <section class="page-hero">
@@ -88,13 +88,13 @@ const articlePages = articles.map((a) => ({
   description: a.description,
   ogType: "article",
   crumbs: [{ name: "Resources", path: "/resources/" }, { name: a.title, path: `/resources/${a.slug}/` }],
-  schema: { "@type": "Article", headline: a.title, datePublished: a.date, author: { "@type": "Organization", name: "Beyond Clicks" }, publisher: { "@id": "https://beyondclicks.example/#org" } },
+  schema: { "@type": "Article", headline: a.title, datePublished: a.date, author: { "@type": "Organization", name: "Beyond Hive" }, publisher: { "@id": "https://beyondhive.example/#org" } },
   body: (h) => `
 <article>
   <header class="page-hero"><div class="container">
     <span class="eyebrow">${a.tag}</span>
     <h1 style="margin-top:16px;font-size:var(--step-3);text-transform:none;max-width:22ch">${a.title}</h1>
-    <div class="article-meta"><span>Beyond Clicks</span><time datetime="${a.date}">14 November 2026</time><span>${a.read}</span></div>
+    <div class="article-meta"><span>Beyond Hive</span><time datetime="${a.date}">14 November 2026</time><span>${a.read}</span></div>
   </div></header>
   <div class="section-tight" style="padding-top:0"><div class="container prose">${a.body(h)}</div></div>
 </article>`,

@@ -1,5 +1,5 @@
 {
-  "name": "beyond-clicks",
+  "name": "beyond-hive",
   "private": true,
   "type": "module",
   "scripts": { "build": "node build.mjs", "preview": "node build.mjs --target=preview" }

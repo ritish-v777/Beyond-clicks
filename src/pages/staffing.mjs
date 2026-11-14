@@ -15,7 +15,7 @@ const staffing = {
   description: "Screened shortlists of performance marketers, paid social and SEO talent for recruiting and marketing agencies in the US, UK and Canada.",
   crumbs: [{ name: "Staffing", path: "/staffing/" }],
   faq: sFaq,
-  schema: { "@type": "Service", name: "Marketing talent sourcing and screening", provider: { "@id": "https://beyondclicks.example/#org" }, areaServed: ["US", "GB", "CA"] },
+  schema: { "@type": "Service", name: "Marketing talent sourcing and screening", provider: { "@id": "https://beyondhive.example/#org" }, areaServed: ["US", "GB", "CA"] },
   body: ({ u, icon, faqBlock }) => `
 <section class="page-hero">
   <div class="hero-orb" aria-hidden="true"></div>
@@ -100,7 +100,7 @@ const pricing = {
   title: "Staffing pricing | Shortlist sprints and monthly retainers",
   nav: "Staffing pricing",
   group: "Staffing",
-  description: "Staffing pricing from Beyond Clicks: a free 3-candidate shortlist, a $450 shortlist sprint per role, or a $1,400 monthly retainer for up to 4 roles.",
+  description: "Staffing pricing from Beyond Hive: a free 3-candidate shortlist, a $450 shortlist sprint per role, or a $1,400 monthly retainer for up to 4 roles.",
   crumbs: [{ name: "Staffing", path: "/staffing/" }, { name: "Pricing", path: "/staffing/pricing/" }],
   body: ({ u }) => `
 <section class="page-hero">
@@ -160,7 +160,7 @@ const sample = {
   section: "staffing",
   title: "Sample shortlist",
   group: "Staffing",
-  description: "See exactly what a Beyond Clicks shortlist looks like: call notes, verification checks and pay expectations for each candidate.",
+  description: "See exactly what a Beyond Hive shortlist looks like: call notes, verification checks and pay expectations for each candidate.",
   crumbs: [{ name: "Staffing", path: "/staffing/" }, { name: "Sample shortlist", path: "/staffing/sample-shortlist/" }],
   body: ({ u }) => {
     const cands = [
@@ -253,7 +253,7 @@ const candidates = {
   title: "For candidates | Join the marketing talent pool",
   nav: "For candidates",
   group: "Staffing",
-  description: "Marketers: join the Beyond Clicks talent pool. We match you with performance, paid social, SEO and marketing ops roles and never share your CV without your consent.",
+  description: "Marketers: join the Beyond Hive talent pool. We match you with performance, paid social, SEO and marketing ops roles and never share your CV without your consent.",
   crumbs: [{ name: "Staffing", path: "/staffing/" }, { name: "For candidates", path: "/staffing/candidates/" }],
   body: () => `
 <section class="page-hero">
@@ -283,7 +283,7 @@ const candidates = {
         <div class="field"><label for="k-li">LinkedIn URL</label><input id="k-li" type="url" placeholder="https://linkedin.com/in/"></div>
       </div>
       <label style="display:flex;gap:10px;align-items:flex-start;font-size:.92rem">
-        <input type="checkbox" required style="width:20px;min-height:20px;margin-top:3px"> I agree that Beyond Clicks may keep my details to match me with roles. My CV will only be shared after I agree to a specific role.
+        <input type="checkbox" required style="width:20px;min-height:20px;margin-top:3px"> I agree that Beyond Hive may keep my details to match me with roles. My CV will only be shared after I agree to a specific role.
       </label>
       <button class="btn btn-block" type="submit">Join the talent pool <span class="arrow">&rarr;</span></button>
       <p class="form-note" tabindex="-1">Prototype: nothing was sent or stored.</p>

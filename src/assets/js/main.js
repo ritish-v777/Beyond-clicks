@@ -1,4 +1,4 @@
-/* Beyond Clicks site script. Small, no dependencies. */
+/* Beyond Hive site script. Small, no dependencies. */
 (function () {
   var doc = document.documentElement;
   doc.classList.add("js");

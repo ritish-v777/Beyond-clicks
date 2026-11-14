@@ -1,10 +1,12 @@
-// Static site builder for Beyond Clicks. No dependencies.
+// Static site builder for Beyond Hive. No dependencies.
 // Usage: node build.mjs                 -> dist/ with folder links (GitHub Pages, Netlify, Vercel)
 //        node build.mjs --target=preview -> preview/ with explicit index.html links (claude.ai preview)
 import { mkdirSync, writeFileSync, cpSync, rmSync, existsSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { SITE, NAV, SUBNAV, CTA } from "./src/site.mjs";
 import { icon } from "./src/icons.mjs";
+import { readFileSync } from "node:fs";
+const LOGO = readFileSync("./src/logo.svg.txt", "utf8");
 import corePages from "./src/pages/core.mjs";
 import marketingPages from "./src/pages/marketing.mjs";
 import staffingPages from "./src/pages/staffing.mjs";
@@ -87,8 +89,8 @@ function header(page, u) {
 <header class="site-header">
   <div class="container header-row">
     <a class="logo" href="${u("/")}" aria-label="${SITE.name} home">
-      <span class="logo-dot" aria-hidden="true"></span>
-      <span class="logo-mark">Beyond<br>Clicks</span>
+      ${LOGO}
+      <span class="logo-mark">Beyond<br>Hive</span>
     </a>
     <nav class="nav" aria-label="Main"><ul>${navItems}</ul></nav>
     <div class="header-actions">
@@ -125,7 +127,8 @@ function footer(u) {
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a class="logo" href="${u("/")}"><span class="logo-dot" aria-hidden="true"></span><span class="logo-mark">Beyond<br>Clicks</span></a>
+        <a class="logo" href="${u("/")}">${LOGO}<span class="logo-mark">Beyond<br>Hive</span></a>
+        <p class="tagline">People. Brands. Possibilities.</p>
         <p class="muted small">Marketing, staffing and tools for marketing-led teams. Based in Mohali, India. Working with clients in the US, UK, Canada and India.</p>
       </div>
       ${col("Marketing", [["Overview", "/marketing/"], ["Growth Diagnosis", "/marketing/diagnosis/"], ["Our work", "/marketing/work/"]])}
@@ -133,7 +136,7 @@ function footer(u) {
       ${col("Tools", [["All tools", "/tools/"], ["CV Screener", "/tools/cv-screener/"], ["UTM Builder", "/tools/utm-builder/"], ["Screener pricing", "/tools/cv-screener/pricing/"]])}
       ${col("Company", [["About", "/about/"], ["Resources", "/resources/"], ["Contact", "/contact/"], ["Privacy", "/privacy/"], ["Terms", "/terms/"]])}
     </div>
-    <div class="footer-giant" aria-hidden="true">Beyond Clicks</div>
+    <div class="footer-giant" aria-hidden="true">Beyond Hive</div>
     <div class="footer-bottom">
       <span>&copy; ${new Date().getFullYear()} ${SITE.name}. Registered entity details to be added.</span>
       <span>Prototype for internal review</span>

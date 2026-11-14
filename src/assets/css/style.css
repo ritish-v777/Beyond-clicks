@@ -1,4 +1,4 @@
-/* Beyond Clicks design system
+/* Beyond Hive design system
    Layout idea: matte black stage, white for reading, deep burgundy only where the eye should land.
    Mobile first. Layouts re-flow at 640 / 960 / 1280 instead of shrinking. */
 
@@ -820,3 +820,9 @@ a.card:hover .tool-card-shot { transform: scale(1.02); }
 .hero-x .lead { margin-top: 22px; max-width: 54ch; }
 .hero-x .btn-row { margin-top: 28px; }
 @media (min-width: 960px) { .hero-x h1 { font-size: clamp(3.2rem, 5.2vw, 4.9rem); } .float-main { top: 96px !important; } }
+
+/* Beyond Hive logo */
+.logo-svg { width: 30px; height: 30px; flex: none; filter: drop-shadow(0 0 10px rgba(154, 24, 56, 0.55)); transition: transform 0.6s var(--ease); }
+.logo:hover .logo-svg { transform: rotate(60deg); }
+.tagline { font-family: var(--font-display); font-weight: 800; font-stretch: 112%; font-size: 0.82rem; letter-spacing: 0.18em; text-transform: uppercase; color: #e88aa0; }
+@media (min-width: 640px) { .logo-svg { width: 34px; height: 34px; } }

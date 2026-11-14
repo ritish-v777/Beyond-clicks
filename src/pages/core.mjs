@@ -1,5 +1,5 @@
 const homeFaq = [
-  ["What does Beyond Clicks do?", "We run paid growth for marketing-led brands, source and screen marketing talent for agencies abroad, and build free tools for recruiters and marketers."],
+  ["What does Beyond Hive do?", "We run paid growth for marketing-led brands, source and screen marketing talent for agencies abroad, and build free tools for recruiters and marketers."],
   ["Where are you based?", "Our team is in Mohali, India. We work with clients in the US, UK, Canada and India, and plan our hours around your time zone."],
   ["Are the tools really free?", "Yes. The CV Screener is free for batches of up to 10 CVs and the UTM Builder is free with no limit. Screener Pro adds bigger batches and exports."],
   ["Do the tools upload my files?", "No. The CV Screener reads files inside your browser. Nothing you drop in is sent to our servers."],
@@ -12,10 +12,10 @@ const split = (text) =>
 const home = {
   path: "/",
   section: "home",
-  title: "Beyond Clicks | Growth, staffing and tools for marketing-led teams",
+  title: "Beyond Hive | People. Brands. Possibilities.",
   nav: "Home",
   description:
-    "Beyond Clicks grows marketing-led brands, sources vetted marketing talent for agencies in the US, UK and Canada, and builds free tools for recruiters and marketers.",
+    "Beyond Hive grows marketing-led brands, sources vetted marketing talent for agencies in the US, UK and Canada, and builds free tools for recruiters and marketers.",
   faq: homeFaq,
   scripts: ["/assets/js/silk.js"],
   body: ({ u, icon, faqBlock }) => {
@@ -25,7 +25,7 @@ const home = {
   <div class="silk-wrap" aria-hidden="true"><canvas data-silk="0.4" data-bright="1"></canvas></div>
   <div class="container hero-grid">
     <div>
-      <span class="eyebrow fade-up" style="--d:.05s">Marketing, staffing and tools</span>
+      <span class="eyebrow fade-up" style="--d:.05s">People. Brands. Possibilities.</span>
       <h1 class="split-text" style="margin-top:18px">${split("We grow brands and find the")} <span class="hl">${split("marketers")}</span> ${split("who run them.")}</h1>
       <p class="lead fade-up" style="--d:.7s">Our marketing team fixes measurement and scales paid growth. Our staffing team sources and screens marketing talent for agencies in the US, UK and Canada. Our free tools take the busy work off recruiters and marketers.</p>
       <div class="btn-row fade-up" style="--d:.85s">
@@ -150,7 +150,7 @@ const home = {
     </div>
     <div class="showcase">
       <div class="browser" data-showcase>
-        <div class="browser-bar"><i></i><i></i><i></i><span>beyondclicks / tools / cv-screener</span></div>
+        <div class="browser-bar"><i></i><i></i><i></i><span>beyondhive / tools / cv-screener</span></div>
         <img src="${u("/assets/img/shot-screener.webp")}" alt="CV Screener results: 8 CVs screened, 6 with something to check, and one near-identical pair flagged" width="1400" height="1150" loading="lazy" decoding="async">
       </div>
     </div>
@@ -240,15 +240,15 @@ const about = {
   section: "about",
   title: "About",
   group: "Company",
-  description: "Beyond Clicks is a marketing, staffing and tools company based in Mohali, India, working with clients in the US, UK, Canada and India.",
+  description: "Beyond Hive is a marketing, staffing and tools company based in Mohali, India, working with clients in the US, UK, Canada and India.",
   crumbs: [{ name: "About", path: "/about/" }],
   body: ({ u }) => `
 <section class="page-hero">
   <div class="hero-orb" aria-hidden="true"></div>
   <div class="container">
-    <span class="eyebrow">About Beyond Clicks</span>
+    <span class="eyebrow">About Beyond Hive</span>
     <h1 style="margin-top:16px">Built by people who <span class="hl">run</span> ad accounts.</h1>
-    <p class="lead">Beyond Clicks started as hands-on paid media and tracking work for brands in India, the UK, the US and Canada. The same habit kept paying off: check the data before acting on it. Staffing and tools grew out of that habit.</p>
+    <p class="lead">Beyond Hive started as hands-on paid media and tracking work for brands in India, the UK, the US and Canada. The same habit kept paying off: check the data before acting on it. Staffing and tools grew out of that habit.</p>
   </div>
 </section>
 <section class="section-tight">
@@ -291,7 +291,7 @@ const contact = {
   section: "contact",
   title: "Contact",
   group: "Company",
-  description: "Contact Beyond Clicks about marketing, staffing or our tools. We reply within one business day.",
+  description: "Contact Beyond Hive about marketing, staffing or our tools. We reply within one business day.",
   crumbs: [{ name: "Contact", path: "/contact/" }],
   body: ({ u }) => `
 <section class="page-hero">
@@ -324,7 +324,7 @@ const legal = (path, title, intro, items) => ({
   section: "legal",
   title,
   group: "Legal",
-  description: `${title} for Beyond Clicks. Draft for review.`,
+  description: `${title} for Beyond Hive. Draft for review.`,
   crumbs: [{ name: title, path }],
   noindex: true,
   body: () => `
@@ -338,7 +338,7 @@ const legal = (path, title, intro, items) => ({
 </div></section>`,
 });
 
-const privacy = legal("/privacy/", "Privacy policy", "How Beyond Clicks handles personal data on this website. This is an outline to be completed by a lawyer before launch.", [
+const privacy = legal("/privacy/", "Privacy policy", "How Beyond Hive handles personal data on this website. This is an outline to be completed by a lawyer before launch.", [
   ["What we collect", "Details you send through our forms, and anonymous page analytics. Our analytics record page views and tool events, never the content of files you use in our tools."],
   ["Our tools", "The CV Screener and UTM Builder run in your browser. Files and text you put in them are not sent to our servers."],
   ["Candidate data", "If you join our talent pool, we keep your details to match you with roles and only share your CV with a client after you agree to that specific role. See the candidate privacy notice."],

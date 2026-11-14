@@ -1,9 +1,9 @@
 // Site-wide settings. Change SITE.url once the domain is bought.
 export const SITE = {
-  name: "Beyond Clicks",
-  url: "https://beyondclicks.example",
+  name: "Beyond Hive",
+  url: "https://beyondhive.example",
   description:
-    "Beyond Clicks grows marketing-led brands, sources vetted marketing talent for agencies in the US, UK and Canada, and builds free tools for recruiters and marketers.",
+    "Beyond Hive grows marketing-led brands, sources vetted marketing talent for agencies in the US, UK and Canada, and builds free tools for recruiters and marketers.",
   email: "hello@your-domain.com",
 };
 

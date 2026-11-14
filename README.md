@@ -1,6 +1,6 @@
-# Beyond Clicks website (prototype)
+# Beyond Hive website (prototype)
 
-A fast, static, mobile-first website for Beyond Clicks: Marketing, Staffing and Tools. Plain HTML, CSS and JavaScript with a tiny Node build script. No framework and no dependencies.
+A fast, static, mobile-first website for Beyond Hive: Marketing, Staffing and Tools. Plain HTML, CSS and JavaScript with a tiny Node build script. No framework and no dependencies.
 
 ## Run it locally
 
@@ -13,12 +13,12 @@ npx serve dist                 # or: python3 -m http.server --directory dist
 
 ## Put it live on GitHub Pages
 
-1. Create an empty GitHub repository, for example `beyond-clicks`.
+1. Create an empty GitHub repository, for example `beyond-hive`.
 2. Push this folder to its `main` branch.
 3. In the repository, go to Settings, then Pages, and set Source to **GitHub Actions**.
 4. Every push to `main` now builds and deploys the site automatically (`.github/workflows/pages.yml`).
 
-The site uses relative links, so it works at `username.github.io/beyond-clicks/` and on a custom domain.
+The site uses relative links, so it works at `username.github.io/beyond-hive/` and on a custom domain.
 
 ## Where things live
 
