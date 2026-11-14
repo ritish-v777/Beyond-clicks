@@ -17,7 +17,7 @@ const home = {
   description:
     "Beyond Hive grows marketing-led brands, sources vetted marketing talent for agencies in the US, UK and Canada, and builds free tools for recruiters and marketers.",
   faq: homeFaq,
-  scripts: ["/assets/js/silk.js"],
+  scripts: ["/assets/js/silk.js", "/assets/js/hive.js"],
   body: ({ u, icon, faqBlock }) => {
     __i = 0;
     return `
@@ -34,19 +34,13 @@ const home = {
       </div>
       <div class="hero-meta fade-up" style="--d:1s"><span><i></i>Free tools, no signup</span><span>Clients in the US, UK, Canada and India</span></div>
     </div>
-    <div class="float-stack fade-up" style="--d:.6s" aria-label="Examples of our work">
-      <div class="glass float-chip float-a"><div class="card-icon">${icon("chart")}</div><div><b>Tracking audit</b><small>Example: 3 leaks found before scaling</small></div></div>
-      <div class="glass card float-main" data-tilt="5" style="padding:22px">
-        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><span class="badge badge-wine">CV Screener</span><span class="small muted">Example batch</span></div>
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:6px">
-          <div><div class="card-num">24</div><p class="small">CVs screened</p></div>
-          <div><div class="card-num">9</div><p class="small">meet every must-have</p></div>
-          <div><div class="card-num hl">3</div><p class="small">flags to check</p></div>
-        </div>
-        <p class="small">Two summaries are near copies. One candidate lists overlapping full-time roles in 2022.</p>
-        <a class="btn btn-sm" href="${u("/tools/cv-screener/")}">Try it with sample CVs <span class="arrow">&rarr;</span></a>
-      </div>
-      <div class="glass float-chip float-b"><div class="card-icon">${icon("users")}</div><div><b>Shortlist ready</b><small>Example: 5 screened marketers in 5 days</small></div></div>
+    <div class="hive-stage fade-up" style="--d:.3s">
+      <canvas data-hive tabindex="0" role="img" aria-label="The Beyond Hive logo, three hexagon cells, built by a swarm of glowing bees. Click to rebuild it."></canvas>
+      <div class="hive-ring" aria-hidden="true"></div>
+      <div class="glass float-chip hc hc-1"><div class="card-icon">${icon("users")}</div><div><b>People</b><small>Vetted marketing talent</small></div></div>
+      <div class="glass float-chip hc hc-2"><div class="card-icon">${icon("chart")}</div><div><b>Brands</b><small>Growth on clean data</small></div></div>
+      <div class="glass float-chip hc hc-3"><div class="card-icon">${icon("spark")}</div><div><b>Possibilities</b><small>Free tools, no signup</small></div></div>
+      <p class="hive-hint" aria-hidden="true"><span class="hint-mouse">Hover to scatter the swarm. Click to rebuild.</span><span class="hint-touch">Tap the hive to rebuild it.</span></p>
     </div>
   </div>
 </section>

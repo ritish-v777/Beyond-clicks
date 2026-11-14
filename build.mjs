@@ -95,6 +95,7 @@ function header(page, u) {
     <nav class="nav" aria-label="Main"><ul>${navItems}</ul></nav>
     <div class="header-actions">
       <button class="kbd-hint" type="button" data-open-palette aria-label="Search pages"><span>Jump to</span><kbd>Ctrl K</kbd></button>
+      <button class="theme-btn" type="button" data-theme-toggle aria-label="Switch to light mode"><svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 1 1 9.8 3.5a7 7 0 0 0 10.7 10.7z"/></svg><svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"/></svg></button>
       <a class="btn btn-sm btn-header" href="${u(cta.path)}">${cta.label}</a>
       <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="drawer"><span></span></button>
     </div>
@@ -172,6 +173,8 @@ function layout(page) {
 <link rel="canonical" href="${canonical}">
 ${page.noindex ? '<meta name="robots" content="noindex">' : ""}
 <meta name="theme-color" content="#050505">
+<meta name="color-scheme" content="dark light">
+<script>try{var t=localStorage.getItem("bh-theme");if(t==="light")document.documentElement.setAttribute("data-theme","light");}catch(e){}</script>
 <meta property="og:type" content="${page.ogType || "website"}">
 <meta property="og:site_name" content="${SITE.name}">
 <meta property="og:title" content="${esc(title)}">
